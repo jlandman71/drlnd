@@ -34,22 +34,21 @@ The task is episodic, and in order to solve the environment, your agent must get
 
 2. Place the file in the DRLND GitHub repository, in the `p1_navigation/` folder, and unzip (or decompress) the file. 
 
-### Instructions
+### Solution 
 
-Follow the instructions in `Navigation.ipynb` to get started with training your own agent!  
+I have implemented Double Deep Q-Learning to get faster convergence than Vanilla Deep Q-Learning.
 
-### (Optional) Challenge: Learning from Pixels
+For implementing Double Deep Q-Learning I used Von Dollen's article "Investigating Reinforcement Learning Agents for
+Continuous State Space Environments" [ref](https://arxiv.org/ftp/arxiv/papers/1708/1708.02378.pdf) as a starting point.
 
-After you have successfully completed the project, if you're looking for an additional challenge, you have come to the right place!  In the project, your agent learned from information such as its velocity, along with ray-based perception of objects around its forward direction.  A more challenging task would be to learn directly from pixels!
+I used Von Dollen's recommended neural network architecture with first hidden layer of 128 nodes and second hidden layer of 256 nodes. Also I used the tanh activation function for connecting the first to the second hidden layer.
 
-To solve this harder task, you'll need to download a new Unity environment.  This environment is almost identical to the project environment, where the only difference is that the state is an 84 x 84 RGB image, corresponding to the agent's first-person view.  (**Note**: Udacity students should not submit a project with this new environment.)
+To implement Double learning the network for determining the next state's max actions (qnetwork_local) is seperated from the network that determines the next state's action values (qnetwork_target) (code snippet from dqn_agent.py):
+   next_actions = self.qnetwork_local(next_states).detach().argmax(1).unsqueeze(1)
+   Q_targets_next = self.qnetwork_target(next_states).gather(1, next_actions)
 
-You need only select the environment that matches your operating system:
-- Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/VisualBanana_Linux.zip)
-- Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/VisualBanana.app.zip)
-- Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/VisualBanana_Windows_x86.zip)
-- Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/VisualBanana_Windows_x86_64.zip)
+I have tested the implementation first on OpenAI Gym’s LunarLander-v2 to see if I could replicate Von Dollen's results.
+After the results on OpenAI Gym’s LunarLander-v2 were satisfactory then I applied the same solution to the Banana Navigation project.
+Then I had to decrease the optimizer's learning rate from 2e-3 to 2e-4 to get stable convergence.   
 
-Then, place the file in the `p1_navigation/` folder in the DRLND GitHub repository, and unzip (or decompress) the file.  Next, open `Navigation_Pixels.ipynb` and follow the instructions to learn how to use the Python API to control the agent.
-
-(_For AWS_) If you'd like to train the agent on AWS, you must follow the instructions to [set up X Server](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above.
+The end result is a fast convergence to the target score of 15.0 in 326 episodes.
