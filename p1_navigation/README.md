@@ -25,7 +25,7 @@ The task is episodic, and in order to solve the environment, your agent must get
 I have implemented Double Deep Q-Learning to get faster convergence than Vanilla Deep Q-Learning.
 
 For implementing Double Deep Q-Learning I used Von Dollen's article "Investigating Reinforcement Learning Agents for
-Continuous State Space Environments" [ref](https://arxiv.org/ftp/arxiv/papers/1708/1708.02378.pdf) as a starting point.
+Continuous State Space Environments" [reference](https://arxiv.org/ftp/arxiv/papers/1708/1708.02378.pdf) as a starting point.
 
 I used Von Dollen's recommended neural network architecture with first hidden layer of 128 nodes and second hidden layer of 256 nodes. Also I used the tanh activation function for connecting the first to the second hidden layer.
 
