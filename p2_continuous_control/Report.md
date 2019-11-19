@@ -24,7 +24,7 @@ The **Critic** maps a state and action to an estimated Q-value, which reflects t
 
 ## Results
 
-![Score plot](Plot.png)
+![Score plot](./Plot.png)
 
 Episode 25	Average score: 2.76	Score: 7.507
 Episode 50	Average score: 7.58	Score: 15.946
