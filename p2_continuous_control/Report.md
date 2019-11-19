@@ -3,6 +3,8 @@ This report presents the approach taken to solve the Continuous Control project 
 
 ## Approach
 To solve this project an implementation was used of the Deep Deterministic Policy Gradient algorithm. DDPG is a common algorihtm for learning continuous control. This implementation is reusing the DDPG implementation DDPG-Pendulum that was provided with the Udacity drlnd repository. This was adjusted to support multiple parallel agent instances.  
+Supporting multiple parallel agent instances could be be done in different ways. The approach taken was to have a single agent with a single replay memory processing 20 parallel states per time step and have a single learning update per time step. This was converging better then having 20 seperate agent instances with shared networks and independent learning steps and replay memories. 
+This makes sense because using a single replay memory takes advantage of having more randomness in states.
 
 ### Agent hyperparameters
 The agent uses the following hyperparameters:
@@ -25,15 +27,6 @@ The **Critic** maps a state and action to an estimated Q-value, which reflects t
 ## Results
 
 ![Score plot](Plot.PNG)
-
-Episode 25	Average score: 2.76	Score: 7.507
-Episode 50	Average score: 7.58	Score: 15.946
-Episode 75	Average score: 13.43	Score: 28.739
-Episode 100	Average score: 18.67	Score: 34.830
-Episode 125	Average score: 26.91	Score: 36.068
-Episode 137	Average score: 30.09	Score: 36.112
-
-Environment solved in 137 episodes!	Average score: 30.09
 
 The 20 agents solved the environment in 137 episodes obtaining an average reward of +30.09 over the last 100 episodes.
 
