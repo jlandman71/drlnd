@@ -1,10 +1,10 @@
 # Report
 
-This report presents the approach taken to solve the second project of Udacity's Deep Reinforcement Learning Nanodegree Program, where the goal is to train an agent to move a double-jointed robot hand to a goal location and keep it there. The agent receives a reward of +0.1 for each step that the agent's hand is in the goal location. Thus, the goal of the agent is to maintain its position at the goal location for as many time steps as possible. This project addresses an environment where 20 identical agents are trained simultaneously. Furthermore, this report also shows some results and directions for future work.
+This report presents the approach taken to solve the Continuous Control project of Udacity's Deep Reinforcement Learning Nanodegree Program, where the goal is to train an agent to move a double-jointed robot hand to a goal location and keep it there. The agent receives a reward of +0.1 for each step that the agent's hand is in the goal location. Thus, the goal of the agent is to maintain its position at the goal location for as many time steps as possible. This project addresses an environment where 20 identical agents are trained simultaneously. Furthermore, this report also shows some results and directions for future work.
 
 ## Solution
 
-The agents perform Deep Deterministic Policy Gradient Learning in the environment. Addressing the problem as an episodic task, the agents train for a given number of episodes or until they solve the environment. The environment is solved when the agents receive an average reward of +30 over the last 100 episodes.
+To solve this project an implementation was used of the Deep Deterministic Policy Gradient algorithm. DDPG is a common algorihtm for learning continuous control. This implementation is reusing the DDPG implementation "ddpg-pendulum" that was provided with the Udacity drlnd repository. This was adjusted  
 
 ### Agent hyperparameters
 
