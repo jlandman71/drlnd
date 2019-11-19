@@ -1,5 +1,5 @@
 # Report
-This report presents the approach taken to solve the Continuous Control project of Udacity's Deep Reinforcement Learning Nanodegree Program. The results are shown and directions for future work are discussed.
+This report presents the approach taken to solve the Continuous Control project of Udacity's Deep Reinforcement Learning Nanodegree Program. The results are shown and directions for future work are mentioned.
 
 ## Approach
 To solve this project an implementation was used of the Deep Deterministic Policy Gradient algorithm. DDPG is a common algorihtm for learning continuous control. This implementation is reusing the DDPG implementation DDPG-Pendulum that was provided with the Udacity drlnd repository. This was adjusted to support multiple parallel agent instances.  
