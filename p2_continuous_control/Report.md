@@ -6,21 +6,21 @@ To solve this project an implementation was used of the Deep Deterministic Polic
 
 ### Agent hyperparameters
 The agent uses the following hyperparameters:
-- **`BATCH_SIZE`** (128): size of the mini-batches
-- **`BUFFER_SIZE`** (1e5): size of the replay buffer
-- **`GAMMA`** (0.99): discount factor
-- **`LR_ACTOR`** (1e-4): learning rate of the Adam optimizer for the actor
-- **`LR_CRITIC`** (1e-3): learning rate of the Adam optimizer for the critic
-- **`TAU`** (1e-3): interpolation factor for the soft update of the target network
-- **`WEIGHT_DECAY`** (0): L2 weight decay for the Adam optimizer for the critic.
+- **BATCH_SIZE** (128): size of the mini-batches
+- **BUFFER_SIZE** (1e5): size of the replay buffer
+- **GAMMA** (0.99): discount factor
+- **LR_ACTOR** (1e-4): learning rate of the Adam optimizer for the actor
+- **LR_CRITIC** (1e-3): learning rate of the Adam optimizer for the critic
+- **TAU** (1e-3): interpolation factor for the soft update of the target network
+- **WEIGHT_DECAY** (0): L2 weight decay for the Adam optimizer for the critic.
 
 ### Neural network architectures
 The neural network architectures are the same as for the DDPG-Pendulum.
 
-The Actor maps each state of the environment to an action, which is a vector of four numbers between -1 and +1. 
+The **Actor** maps each state of the environment to an action, which is a vector of four numbers between -1 and +1. 
 The network consists of three fully-connected linear layers with ReLU activation functions. The output layer uses the `tanh` activation function to produce values between -1 and +1 for each of the four outputs. The first hidden layer consists of 400 units, whereas the second hidden layer consists of 300 units.
 
-The Critic maps a state and action to an estimated Q-value, which reflects the estimated quality of the given action in the given state. The network consists of three fully-connected linear layers with ReLU activation functions. The output layer produces the estimated value of the given action in the given state. The first hidden layer consists of 400 units, whereas the second hidden layer consists of 300 units.
+The **Critic** maps a state and action to an estimated Q-value, which reflects the estimated quality of the given action in the given state. The network consists of three fully-connected linear layers with ReLU activation functions. The output layer produces the estimated value of the given action in the given state. The first hidden layer consists of 400 units, whereas the second hidden layer consists of 300 units.
 
 ## Results
 
