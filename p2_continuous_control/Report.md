@@ -2,10 +2,10 @@
 This report presents the approach taken to solve the Continuous Control project of Udacity's Deep Reinforcement Learning Nanodegree Program. The results are shown and directions for future work are discussed.
 
 ## Approach
-To solve this project an implementation was used of the Deep Deterministic Policy Gradient algorithm. DDPG is a common algorihtm for learning continuous control. This implementation is reusing the DDPG implementation "ddpg-pendulum" that was provided with the Udacity drlnd repository. This was adjusted to support multiple parallel agent instances.  
+To solve this project an implementation was used of the Deep Deterministic Policy Gradient algorithm. DDPG is a common algorihtm for learning continuous control. This implementation is reusing the DDPG implementation DDPG-Pendulum that was provided with the Udacity drlnd repository. This was adjusted to support multiple parallel agent instances.  
 
 ### Agent hyperparameters
-The agents use the following hyperparameters:
+The agent uses the following hyperparameters:
 - **`BATCH_SIZE`** (128): size of the mini-batches
 - **`BUFFER_SIZE`** (1e5): size of the replay buffer
 - **`GAMMA`** (0.99): discount factor
@@ -15,7 +15,7 @@ The agents use the following hyperparameters:
 - **`WEIGHT_DECAY`** (0): L2 weight decay for the Adam optimizer for the critic.
 
 ### Neural network architectures
-The neural network architectures are the same as for the "ddpg-pendulum".
+The neural network architectures are the same as for the DDPG-Pendulum.
 
 The Actor maps each state of the environment to an action, which is a vector of four numbers between -1 and +1. 
 The network consists of three fully-connected linear layers with ReLU activation functions. The output layer uses the `tanh` activation function to produce values between -1 and +1 for each of the four outputs. The first hidden layer consists of 400 units, whereas the second hidden layer consists of 300 units.
@@ -38,7 +38,6 @@ Environment solved in 137 episodes!	Average score: 30.09
 The 20 agents solved the environment in 137 episodes obtaining an average reward of +30.09 over the last 100 episodes.
 
 ## Future work
-
 The following future work directions are worth exploring:
-* Implement Q-PROP algorithm and compare results.
-* Implement TRPO algorith and compare results.
+* Implement **Q-PROP** algorithm (https://arxiv.org/abs/1611.02247) and compare results.
+* Implement **TRPO** algorithm (https://arxiv.org/abs/1502.05477) and compare results.
