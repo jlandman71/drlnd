@@ -2,7 +2,7 @@
 This report presents the approach taken to solve the Collaboration and Competition project (Tennis) of Udacity's Deep Reinforcement Learning Nanodegree Program. The results are shown and directions for future work are mentioned.
 
 ## Approach
-To solve this project an implementation was used of the Multi Agent Deep Deterministic Policy Gradient algorithm (**MADDPG**, https://papers.nips.cc/paper/7217-multi-agent-actor-critic-for-mixed-cooperative-competitive-environments.pdf). 
+To solve this project an implementation was used of the **Multi Agent Deep Deterministic Policy Gradient algorithm (MADDPG)** ( https://papers.nips.cc/paper/7217-multi-agent-actor-critic-for-mixed-cooperative-competitive-environments.pdf). 
 MADDPG is a multi-agent version of DDPG where each agent's actor receives an agent specific state but each agent's critic receives the states and actions of all agents.
 For this Tennis project we have two agents for the two tennis players. 
 The biggest challenge was to get the agents starting to learn because in the beginning they receive a lot of zero rewards.
@@ -41,6 +41,6 @@ The 2 agents solved the environment in 753 episodes obtaining an average score o
 
 ## Future work
 The following future work directions are worth exploring:
-* User Prioritized Experience Replay (https://arxiv.org/pdf/1511.05952.pdf) to make more effective use of non-zero rewards from the Replay buffer.
-* Apply the implementation of **MADDPG** to environments where agents have to do both collaboration and competition.
-* Apply the implementation of **MADDPG** to environments where agents have limited observability of the environment state.
+* Apply **Prioritized Experience Replay** (https://arxiv.org/pdf/1511.05952.pdf) to make more effective use of non-zero rewards from the Replay buffer.
+* Apply the implementation of MADDPG to environments where agents have to do both collaboration and competition.
+* Apply the implementation of MADDPG to environments where agents have limited observability of the environment state.
